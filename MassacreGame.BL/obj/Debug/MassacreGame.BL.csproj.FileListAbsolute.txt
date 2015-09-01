@@ -1,0 +1,5 @@
+C:\Users\Mike\Documents\GitHub\MassacreGame\MassacreGame.BL\obj\Debug\MassacreGame.BL.csprojResolveAssemblyReference.cache
+C:\Users\Mike\Documents\GitHub\MassacreGame\MassacreGame.BL\bin\Debug\MassacreGame.BL.dll
+C:\Users\Mike\Documents\GitHub\MassacreGame\MassacreGame.BL\bin\Debug\MassacreGame.BL.pdb
+C:\Users\Mike\Documents\GitHub\MassacreGame\MassacreGame.BL\obj\Debug\MassacreGame.BL.dll
+C:\Users\Mike\Documents\GitHub\MassacreGame\MassacreGame.BL\obj\Debug\MassacreGame.BL.pdb

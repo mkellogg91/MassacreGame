@@ -1,0 +1,8 @@
+C:\Users\Mike\Documents\GitHub\MassacreGame\WarriorClassTest.BL\obj\Debug\WarriorClassTest.BL.csprojResolveAssemblyReference.cache
+C:\Users\Mike\Documents\GitHub\MassacreGame\WarriorClassTest.BL\bin\Debug\WarriorClassTest.BL.dll
+C:\Users\Mike\Documents\GitHub\MassacreGame\WarriorClassTest.BL\bin\Debug\WarriorClassTest.BL.pdb
+C:\Users\Mike\Documents\GitHub\MassacreGame\WarriorClassTest.BL\bin\Debug\MassacreGame.BL.dll
+C:\Users\Mike\Documents\GitHub\MassacreGame\WarriorClassTest.BL\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\Mike\Documents\GitHub\MassacreGame\WarriorClassTest.BL\bin\Debug\MassacreGame.BL.pdb
+C:\Users\Mike\Documents\GitHub\MassacreGame\WarriorClassTest.BL\obj\Debug\WarriorClassTest.BL.dll
+C:\Users\Mike\Documents\GitHub\MassacreGame\WarriorClassTest.BL\obj\Debug\WarriorClassTest.BL.pdb
