@@ -12,19 +12,34 @@ namespace WarriorClassTest.BL
         public void TestMethod1()
         {
 
-            Warrior warrior1 = new Warrior();
-            Warrior warrior2 = new Warrior();
-            Warrior winner;
+            //
+            // Variables!!
+            //
+            Warrior[] warriorArray = new Warrior[105];      //This will hold warrior objects
+            bool keepLooping = true;
 
-            warrior1.health = 200;
-            warrior1.strength = 5;
-            warrior1.isAlive = true;
 
-            warrior2.health = 200;
-            warrior2.strength = 5;
-            warrior2.isAlive = true;
+            //
+            // warrior maker
+            //
+            for (int x=1; x<101; x++)
+            {
 
-           winner = Warrior.fight(warrior1, warrior2);
+                //create the new object of Warrior class
+                warriorArray[x] = new Warrior();
+
+                //set properties of the new object using some random variables so its slightly randomized
+                //this will temporarily be hardcoded for simplicity :)
+                warriorArray[x].health = 300;
+                warriorArray[x].name = "LittleWarrior" + Convert.ToString(x);
+                warriorArray[x].strength = 10;
+                warriorArray[x].isAlive = true;
+            }
+
+            //
+            // warrior find and fight section
+            //
+           
 
         }
     }
