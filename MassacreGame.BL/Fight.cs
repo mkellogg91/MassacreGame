@@ -6,12 +6,14 @@ using System.Threading.Tasks;
 
 namespace MassacreGame.BL
 {
-    class Fight
+    public class Fight
     {
 
         //Randoms
         public static Random rnd = new Random();           //this determines which warrior takes the first turn
         public static Random fightAttack = new Random();   //generates random number for how big the hit will be on this fighter's turn
+
+       
 
 
             /// <summary>
@@ -22,7 +24,7 @@ namespace MassacreGame.BL
             /// <param name="fighter1"></param>
             /// <param name="fighter2"></param>
             /// <returns></returns>
-        public Warrior fight(Warrior fighter1, Warrior fighter2)
+        public void fight(Warrior fighter1, Warrior fighter2)
         {
             //Here I use an array of the warrior class so I can programatically refer to each warrior since its up in the air who's turn it will be
             Warrior[] fightersArray = new Warrior[3];
@@ -65,15 +67,15 @@ namespace MassacreGame.BL
                 switch (hit)
                 {
                     case 0:
-                        Console.WriteLine(fightersArray[currentTurn].name + " missed cause he's a big huge NOOB HEHEHEHE! ");
+                        System.Diagnostics.Debug.WriteLine(fightersArray[currentTurn].name + " missed cause he's a big huge NOOB HEHEHEHE! ");
                         break;
 
                     case 1 - 2:
-                        Console.WriteLine(fightersArray[currentTurn].name + " hit " + fightersArray[notTurn].name + " for a measly " + Convert.ToString(hit) + " points of damage");
+                        System.Diagnostics.Debug.WriteLine(fightersArray[currentTurn].name + " hit " + fightersArray[notTurn].name + " for a measly " + Convert.ToString(hit) + " points of damage");
                         break;
 
                     default:
-                        Console.WriteLine(fightersArray[currentTurn].name + " hit " + fightersArray[notTurn].name + " right in the face for " + Convert.ToString(hit) + " points of damage");
+                        System.Diagnostics.Debug.WriteLine(fightersArray[currentTurn].name + " hit " + fightersArray[notTurn].name + " right in the face for " + Convert.ToString(hit) + " points of damage");
                         break;
                 }
 
@@ -86,12 +88,12 @@ namespace MassacreGame.BL
             if (fighter1.health == 0)
             {
                 fighter1.isAlive = false;       //Setting this warrior to DEAD!!!
-                return fighter2;
+                //return fighter2;
             }
             else
             {
                 fighter2.isAlive = false;       //Setting this warrior to DEAD!!!
-                return fighter2;
+                //return fighter2;
             }
 
         }//end fight method
@@ -102,26 +104,48 @@ namespace MassacreGame.BL
         /// 
         /// </summary>
         /// <param name="warriorArray"></param>
-        public void findNextFighter(Warrior[] warriorArray)
+        public Warrior findNextFighter(List<Warrior> warriorArray)
         {
-            bool keepLooping = true;
+            // goal:
+            // return a object of warrior class that is alive
+            // from warrior array provided in the parameters that is alive
 
-            do
+
+            Warrior war = null;
+
+            foreach (Warrior i in warriorArray)
             {
-
-
-
-
-                if(/*logic to determine if only 1 warrior's isAlive property == true*/)
+               
+                if (i.isAlive == true)
                 {
-                    keepLooping = false;
+                    war = i;
+                    break;
+                }
+                
+            }
+            return war;
+
+
+        }//end findNextwarrior
+
+
+        public int warriorsAlive(List<Warrior> warriorArray)
+        {
+            int isAlive = 0;
+
+            foreach(Warrior i in warriorArray)
+            {
+                if(i.isAlive == true)
+                {
+                    isAlive ++;
                 }
                 else
                 {
-                    //do nothing
+                    //nothing!
                 }
+            }
 
-            } while(keepLooping == true);
+            return isAlive;
 
         }
 
