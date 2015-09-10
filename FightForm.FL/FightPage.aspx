@@ -8,12 +8,34 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <div>
     
-        <asp:Label ID="Label1" runat="server" Text="FightBox:"></asp:Label>
-        <asp:TextBox ID="FightText" runat="server" Height="124px" OnTextChanged="TextBox1_TextChanged" Width="1014px"></asp:TextBox>
+        <div>
+
+            <asp:Label ID="Label2" runat="server" Text="# of warriors to fight: " ></asp:Label>
+            <asp:TextBox ID="warriorNumber" runat="server" Text ="1" ></asp:TextBox>
+
+        </div>
+
+        </br>
+        </br>
+
+        <div>
     
-    </div>
+            <asp:Label ID="Label1" runat="server" Text="FightBox: "></asp:Label>
+            <asp:TextBox ID="FightText" runat="server" Height="124px" OnTextChanged="TextBox1_TextChanged" Width="1014px" TextMode="MultiLine"></asp:TextBox>
+    
+        </div>
+
+        </br>
+        </br>
+
+        <div>
+
+            <asp:Button ID="fightButton" runat="server" Text="Fight!" OnClick="fightButton_Click" />
+
+        </div>
+
+
     </form>
 </body>
 </html>

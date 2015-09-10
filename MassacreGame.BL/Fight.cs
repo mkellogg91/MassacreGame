@@ -24,10 +24,11 @@ namespace MassacreGame.BL
             /// <param name="fighter1"></param>
             /// <param name="fighter2"></param>
             /// <returns></returns>
-        public void fight(Warrior fighter1, Warrior fighter2)
+        public List<string> fight(Warrior fighter1, Warrior fighter2)
         {
             //Here I use an array of the warrior class so I can programatically refer to each warrior since its up in the air who's turn it will be
             Warrior[] fightersArray = new Warrior[3];
+            var fightEvents = new List<string>();
             fightersArray[1] = fighter1;
             fightersArray[2] = fighter2;
 
@@ -67,15 +68,16 @@ namespace MassacreGame.BL
                 switch (hit)
                 {
                     case 0:
-                        System.Diagnostics.Debug.WriteLine(fightersArray[currentTurn].name + " missed cause he's a big huge NOOB HEHEHEHE! ");
+
+                        fightEvents.Add(fightersArray[currentTurn].name + " missed cause he's a big huge NOOB HEHEHEHE! ");
                         break;
 
                     case 1 - 2:
-                        System.Diagnostics.Debug.WriteLine(fightersArray[currentTurn].name + " hit " + fightersArray[notTurn].name + " for a measly " + Convert.ToString(hit) + " points of damage");
+                        fightEvents.Add(fightersArray[currentTurn].name + " hit " + fightersArray[notTurn].name + " for a measly " + Convert.ToString(hit) + " points of damage");
                         break;
 
                     default:
-                        System.Diagnostics.Debug.WriteLine(fightersArray[currentTurn].name + " hit " + fightersArray[notTurn].name + " right in the face for " + Convert.ToString(hit) + " points of damage");
+                        fightEvents.Add(fightersArray[currentTurn].name + " hit " + fightersArray[notTurn].name + " right in the face for " + Convert.ToString(hit) + " points of damage");
                         break;
                 }
 
@@ -85,18 +87,65 @@ namespace MassacreGame.BL
                 //Checks if one of the fighters died
                 if(fighter1.health <= 0)
                 {
-                    System.Diagnostics.Debug.WriteLine("-----------------------" + fighter1.name + " IS DEAD!! XD XD XD XD XD" + "-----------------------");
+                    fightEvents.Add("-----------------------" + fighter1.name + " IS DEAD!! XD XD XD XD XD" + "-----------------------");
                     fighter1.isAlive = false;
                 }
                 else if(fighter2.health <= 0)
                 {
-                    System.Diagnostics.Debug.WriteLine("----------------------- " + fighter2.name + " IS DEAD!! XD XD XD XD XD" + "-----------------------");
+                    fightEvents.Add("----------------------- " + fighter2.name + " IS DEAD!! XD XD XD XD XD" + "-----------------------");
                     fighter2.isAlive = false;
                 }
                 
             } while (fighter1.health > 0 && fighter2.health > 0);
 
+            return fightEvents;
+
         }//end fight method
+
+
+
+
+
+        /// <summary>
+        /// This method loops through and calls the fight method over and over until only 1 warrior remains
+        /// </summary>
+        /// <param name="warriorList"></param>
+        public List<List<string>> battle(List<Warrior> warriorList)
+        {
+
+            // takes a list of warriors
+            // it calls the fight method over and over until there is only 1 warrior left alive
+
+            // this is my list of lists since each call of "fight" method returns 1 list 
+            // I am storing each list in one big list 
+            var battleList = new List<List<string>>();
+            int leftAlive;
+            Warrior warr1;
+            Warrior warr2;
+
+            do
+            {
+
+
+                // grab some dudes to fight
+                warr1 = findNextFighter(warriorList);
+                // including warr1.name so that warr2 is not set to the same 
+                warr2 = findNextFighter(warriorList, warr1.name);
+
+                // make those turds fight
+               battleList.Add(fight(warr1, warr2));
+
+                // get how many warriors are alive in the array
+                leftAlive = warriorsAlive(warriorList);
+
+            } while (leftAlive > 1);   //end fight loop
+
+            return battleList;
+
+        }
+
+
+
 
 
 

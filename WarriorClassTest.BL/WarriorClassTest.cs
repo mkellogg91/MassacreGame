@@ -39,27 +39,36 @@ namespace WarriorClassTest.BL
             //
             // warrior find and fight section
             //
+
             Fight theFight = new Fight();
-            int leftAlive;
-            Warrior warr1;
-            Warrior warr2;
 
-            do
-            {
-                
+            theFight.battle(warriorList);
 
-                // grab some dudes to fight
-                warr1 = theFight.findNextFighter(warriorList);
-                        // including warr1.name so that warr2 is not set to the same 
-                warr2 = theFight.findNextFighter(warriorList, warr1.name);
 
-                // make those turds fight
-                theFight.fight(warr1, warr2);
 
-                // get how many warriors are alive in the array
-                leftAlive = theFight.warriorsAlive(warriorList);
 
-            } while (leftAlive > 1);   //end fight loop
+
+            //Fight theFight = new Fight();
+            //int leftAlive;
+            //Warrior warr1;
+            //Warrior warr2;
+
+            //do
+            //{
+
+
+            //    // grab some dudes to fight
+            //    warr1 = theFight.findNextFighter(warriorList);
+            //            // including warr1.name so that warr2 is not set to the same 
+            //    warr2 = theFight.findNextFighter(warriorList, warr1.name);
+
+            //    // make those turds fight
+            //    theFight.fight(warr1, warr2);
+
+            //    // get how many warriors are alive in the array
+            //    leftAlive = theFight.warriorsAlive(warriorList);
+
+            //} while (leftAlive > 1);   //end fight loop
 
         }
     }
