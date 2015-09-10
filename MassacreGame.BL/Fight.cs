@@ -82,34 +82,34 @@ namespace MassacreGame.BL
                 //Switch Turns
                 currentTurn = notTurn;       //This sets current turn to what notTurn was..notTurn will be set at the top of the loop to the opposite
 
+                //Checks if one of the fighters died
+                if(fighter1.health <= 0)
+                {
+                    System.Diagnostics.Debug.WriteLine("-----------------------" + fighter1.name + " IS DEAD!! XD XD XD XD XD" + "-----------------------");
+                    fighter1.isAlive = false;
+                }
+                else if(fighter2.health <= 0)
+                {
+                    System.Diagnostics.Debug.WriteLine("----------------------- " + fighter2.name + " IS DEAD!! XD XD XD XD XD" + "-----------------------");
+                    fighter2.isAlive = false;
+                }
+                
             } while (fighter1.health > 0 && fighter2.health > 0);
-
-            //This checks for who the winner of the fight was
-            if (fighter1.health == 0)
-            {
-                fighter1.isAlive = false;       //Setting this warrior to DEAD!!!
-                //return fighter2;
-            }
-            else
-            {
-                fighter2.isAlive = false;       //Setting this warrior to DEAD!!!
-                //return fighter2;
-            }
 
         }//end fight method
 
+
+
+
         /// <summary>
         /// 
-        /// This method is the logic behind fighters finding a new enemy
+        /// This method returns an enemy that is alive
         /// 
         /// </summary>
         /// <param name="warriorArray"></param>
         public Warrior findNextFighter(List<Warrior> warriorArray)
         {
-            // goal:
-            // return a object of warrior class that is alive
-            // from warrior array provided in the parameters that is alive
-
+            
 
             Warrior war = null;
 
@@ -125,10 +125,41 @@ namespace MassacreGame.BL
             }
             return war;
 
+        }//end findNextwarrior
+
+        /// <summary>
+        /// This overloads the findNextWarrior method and allows us to provide a string value to represent warrior name
+        /// to not stop on for the second warrior found
+        /// </summary>
+        /// <param name="warriorArray"></param>
+        /// <param name=""></param>
+        /// <returns></returns>
+        public Warrior findNextFighter(List<Warrior> warriorArray, string warrSkipName)
+        {
+
+
+            Warrior war = null;
+
+            foreach (Warrior i in warriorArray)
+            {
+
+                if (i.isAlive == true && i.name != warrSkipName)
+                {
+                    war = i;
+                    break;
+                }
+
+            }
+            return war;
 
         }//end findNextwarrior
 
 
+        /// <summary>
+        /// This function just returns the number of warriors left alive in the given list
+        /// </summary>
+        /// <param name="warriorArray"></param>
+        /// <returns></returns>
         public int warriorsAlive(List<Warrior> warriorArray)
         {
             int isAlive = 0;

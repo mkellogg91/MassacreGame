@@ -46,16 +46,18 @@ namespace WarriorClassTest.BL
 
             do
             {
-                //get how many warriors are alive in the array
-                leftAlive = theFight.warriorsAlive(warriorList);
+                
 
-                //grab some dudes to fight
+                // grab some dudes to fight
                 warr1 = theFight.findNextFighter(warriorList);
-                warr2 = theFight.findNextFighter(warriorList);
+                        // including warr1.name so that warr2 is not set to the same 
+                warr2 = theFight.findNextFighter(warriorList, warr1.name);
 
-                //make those turds fight
+                // make those turds fight
                 theFight.fight(warr1, warr2);
 
+                // get how many warriors are alive in the array
+                leftAlive = theFight.warriorsAlive(warriorList);
 
             } while (leftAlive > 1);   //end fight loop
 
