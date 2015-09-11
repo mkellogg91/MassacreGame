@@ -22,7 +22,7 @@
         <div>
     
             <asp:Label ID="Label1" runat="server" Text="FightBox: "></asp:Label>
-            <asp:TextBox ID="FightText" runat="server" Height="124px" OnTextChanged="TextBox1_TextChanged" Width="1014px" TextMode="MultiLine"></asp:TextBox>
+            <asp:TextBox ID="FightText" runat="server" Height="575px" Width="1014px" enabled="false" TextMode="MultiLine"></asp:TextBox>
     
         </div>
 

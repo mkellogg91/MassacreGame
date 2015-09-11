@@ -17,7 +17,7 @@ namespace WarriorClassTest.BL
             //
             var warriorList = new List<Warrior>();      //This will hold warrior objects
             bool keepLooping = true;
-
+            var returnList = new List<List<string>>();
 
             //
             // warrior maker
@@ -37,14 +37,25 @@ namespace WarriorClassTest.BL
             }
 
             //
-            // warrior find and fight section
+            // warrior fight section
             //
 
             Fight theFight = new Fight();
 
-            theFight.battle(warriorList);
 
+            // calling the battle method
+            returnList = theFight.battle(warriorList);
 
+            // returning the fight text
+            foreach(List<string> i in returnList)
+            {
+                
+                foreach(string x in i)
+                {
+                    System.Diagnostics.Debug.WriteLine(x);
+                }
+
+            }
 
 
 
