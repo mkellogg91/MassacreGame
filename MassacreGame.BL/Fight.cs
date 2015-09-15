@@ -209,15 +209,20 @@ namespace MassacreGame.BL
         /// </summary>
         /// <param name="warriorArray"></param>
         /// <returns></returns>
-        public int warriorsAlive(List<Warrior> warriorArray)
+        public bool twoWarriorsAlive(List<Warrior> warriorArray)
         {
-            int isAlive = 0;
+            int numberAlive = 0;
+            bool isAlive = false;
 
             foreach(Warrior i in warriorArray)
             {
-                if(i.isAlive == true)
+                if(i.isAlive==true)
                 {
-                    isAlive ++;
+                    numberAlive++;
+                    if(numberAlive >= 2)
+                    {
+                        break;
+                    }
                 }
                 else
                 {
@@ -227,6 +232,18 @@ namespace MassacreGame.BL
 
             return isAlive;
 
+        }
+
+        public bool aliveCheck(Warrior warr)
+        {
+            if(warr.isAlive == true)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
 
